@@ -32,9 +32,9 @@ print(f"Sample (k=5): {random.sample(k=5)}")
 
 ```
 
-### What?
+### What?!
 
-`randombtc` is a Python library that provides for generating random numbers with a common syntax. The special thing about `randombtc` is that it takes the Bitcoin blockchain as a source for its entropy. What does that mean?
+`randombtc` is a Python library for generating random numbers using the common syntax. The special thing about `randombtc` is that it takes the Bitcoin blockchain as a source for its entropy. What does that mean?
 
 Every random number generator needs some source of randomness. In the most primitive cases, this is often just the current time of your computer which is then put into a hash function which is then used to generate a random number. A better approach would be to use "real" randomness, such as sampling random data from your computer's peripherals and environment such as sampling noise from your microphone, keystrokes, cpu temperature, etc. These are all efforts to improve the randomness of a random number generator.
 
