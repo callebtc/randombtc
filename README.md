@@ -42,7 +42,7 @@ An interesting application of random number generators is in online multiplayer 
 
 `randombtc` is a fun attempt at solving the above problem without requiring the exchange of data between parties. It does this by using the immutable bitcoin blockchain which everyone on the internet can agree on secured by proof of work. It basically uses the blockchain as a source of randomness. That means that if you want to make a dice game between two users, they can both look at the blockchain to determine what the outcome of the dice is for this round.
 
-However, one drawback of this method is that we can only sample new entropy whenever a new block is created which is roughly every 10 minutes. The library offers a simple workaround to sample many random numbers based on a single block, however, these will all be precomputable from the first random number, which is based on the blockchain's state.
+However, one drawback of this method is that we can only sample new entropy whenever a new block is created, which is roughly every 10 minutes. The library offers a simple workaround to sample many random numbers based on a single block, however, these will all be precomputable from the first random number, which is based on the blockchain's state.
 
 Does it make any sense to have such a library? I don't know. Is it just for fun and giggles? Maybe.
 
