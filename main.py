@@ -5,5 +5,4 @@ if __name__ == "__main__":
     print(f"Random float: {random.random()}")
     chose_from = ["a", "b", "c", "d", "e", "f", "g", "h"]
     print(f"Random choice from list {chose_from}: {random.choice(chose_from)}")
-    # print(f"Random choices: {random.choices(chose_from, k=6)}")
     print(f"Sample (k=5): {random.sample(k=5)}")
