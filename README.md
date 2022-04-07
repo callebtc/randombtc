@@ -3,17 +3,20 @@
 > a random number generator that everybody can agree on
 
 ### Features
-* One random number roughly every 10 minutes.
-* Same random number for everyone in the universe.
-* Ranges between 0 and 1.
+
+- One random number roughly every 10 minutes.
+- Same random number for everyone in the universe.
+- Ranges between 0 and 1.
 
 ### Install
-````bash
+
+```bash
 git clone https://github.com/callebtc/randombtc
 pip install randombtc/
-````
+```
 
 ### Use
+
 ```python
 import randombtc as random
 
@@ -42,14 +45,18 @@ An interesting application of random number generators is in online multiplayer 
 
 `randombtc` is an attempt at solving the above problem without requiring the exchange of data between parties. It does this by using the immutable bitcoin blockchain which everyone on the internet can agree on (secured by proof of work). It basically uses the blockchain as a source of randomness. That means that if you want to make a dice game between two users, they can both look at the blockchain to determine what the outcome of the dice roll is for this round.
 
-However, one drawback of this method is that we can only sample new entropy whenever a new block is created, which is roughly every 10 minutes. The library offers a simple workaround to sample many random numbers based on a single block, however, these will all be precomputable from the first random number, which is based on the blockchain's state.
+However, one drawback of this method is that we can only sample new entropy whenever a new block is created, which is roughly every 10 minutes. The library offers a simple workaround to sample many random numbers based on a single block, however, these will all be pre-computable from the first random number, which is based on the blockchain's state.
 
 Does it make any sense to have such a library? I don't know. Is it just for fun and giggles? Maybe.
 
+### Warning
+
+Do not use this to settle a high-stakes bet (on the order of the block reward) against a miner. [They can manipulate](https://ethereum.stackexchange.com/questions/94945/can-we-use-block-hash-as-verifiable-randomness-for-the-off-chain-lottery) the statistics of the block hash to a certain degree.
+
 ### Blockchain data
 
-Currently, the library uses the block hash or the Merkle root of the current block as a source of entropy. The data is fetched from [mempool.space](https://mempool.space). 
+Currently, the library uses the block hash or the Merkle root of the current block as a source of entropy. The data is fetched from [mempool.space](https://mempool.space).
 
-The funny thing about using the block hash as a source of entropy is that its entropy decreases as the hash rate of the bitcoin mining network increases since the increased difficulty leads to an increasing number of zeroes in the most significant digits of the block hash. 
+One interesting fact about using the block hash as a source of entropy is that its entropy decreases as the hash rate of the bitcoin mining network increases since the increased difficulty leads to an increasing number of zeroes in the most significant digits of the block hash.
 
-But a random number generator that gets more insecure when Bitcoin gets more secure is stupid! That's why you can also use the Merkle root (by default) as a source of enropty.  
+However, a random number generator that gets more insecure when Bitcoin gets more secure is stupid! That's why you can also use the Merkle root (by default) as a source of entropty.
